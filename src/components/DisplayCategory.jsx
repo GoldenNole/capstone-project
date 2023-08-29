@@ -1,15 +1,17 @@
 import Header from "./Header";
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from 'react';
+import { useParams } from "react-router-dom";
 
-const Homepage = () => {
+const DisplayCategory = () => {
     const [items, setItems] = useState([]);
     const navigate = useNavigate();
+    const { category } = useParams();
   
     useEffect(() => {
       const getAllItmes = async () => {
         try{
-        const response = await fetch("https://fakestoreapi.com/products");
+        const response = await fetch(`https://fakestoreapi.com/products/category/${category}`);
         const result = await response.json();
         console.log(result);
         setItems(result);
@@ -24,10 +26,6 @@ const Homepage = () => {
     return (
       <>
       <Header />
-      <button className="btn" onClick={() => navigate(`/category/electronics`)}> View Electronics</button>
-      <button className="btn" onClick={() => navigate(`/category/jewelery`)}> View jewelery</button>
-      <button className="btn" onClick={() => navigate(`/category/men's clothing`)}> View Men clothing</button>
-      <button className="btn" onClick={() => navigate(`/category/women's clothing`)}> View Women clothing</button>
         <div>
           {items.map((item) => (
             <div key={item.id} className='items-container'>
@@ -43,4 +41,4 @@ const Homepage = () => {
     )
   }
 
-  export default Homepage;
+  export default DisplayCategory;
