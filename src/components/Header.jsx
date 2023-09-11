@@ -21,6 +21,7 @@ const Header = () => {
 
     return (
         <header>My Online Shop
+            <div>
             <label>Login
                 <input type="text" placeholder="login" />
             </label>
@@ -28,6 +29,7 @@ const Header = () => {
                 <input type="text" placeholder="password" />
             </label>
             <button onClick={login}>Login</button>
+            </div>
         </header>
     )
 }

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import Header from "./Header";
 
 const DisplayItem = () => {
     const [item, setItem] = useState([]);
@@ -25,7 +24,6 @@ const DisplayItem = () => {
   
     return (
       <>
-      <Header />
         <div>
               <h3>{item.title}</h3>
               <h5>{item.price}</h5>

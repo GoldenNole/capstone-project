@@ -23,11 +23,12 @@ const Homepage = () => {
   
     return (
       <>
-      <Header />
-      <button className="btn" onClick={() => navigate(`/category/electronics`)}> View Electronics</button>
-      <button className="btn" onClick={() => navigate(`/category/jewelery`)}> View jewelery</button>
-      <button className="btn" onClick={() => navigate(`/category/men's clothing`)}> View Men clothing</button>
+      <div className="sort-container">
+      <button className="btn" onClick={() => navigate(`/category/electronics`)}> View Electronics</button><br />
+      <button className="btn" onClick={() => navigate(`/category/jewelery`)}> View jewelery</button><br />
+      <button className="btn" onClick={() => navigate(`/category/men's clothing`)}> View Men clothing</button><br />
       <button className="btn" onClick={() => navigate(`/category/women's clothing`)}> View Women clothing</button>
+        </div>
         <div>
           {items.map((item) => (
             <div key={item.id} className='items-container'>

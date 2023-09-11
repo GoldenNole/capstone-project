@@ -25,7 +25,6 @@ const DisplayCategory = () => {
   
     return (
       <>
-      <Header />
         <div>
           {items.map((item) => (
             <div key={item.id} className='items-container'>
