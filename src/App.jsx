@@ -4,6 +4,7 @@ import Homepage from './components/Homepage';
 import DisplayItem from "./components/DisplayItem";
 import DisplayCategory from "./components/DisplayCategory";
 import Header from "./components/Header";
+import Cart from "./components/Cart";
 
 function App() {
  
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/:itemId" element={<DisplayItem />} />
         <Route path="/category/:category" element={<DisplayCategory/>} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   )
