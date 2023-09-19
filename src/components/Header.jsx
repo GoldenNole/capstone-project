@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
+  const navigate = useNavigate();
 
      const login = async () => {
         try {
@@ -21,6 +24,7 @@ const Header = () => {
 
     return (
         <header>My Online Shop
+          <button onClick={() => navigate(`/cart`)}>Cart</button>
             <div>
             <label>Login
                 <input type="text" placeholder="login" />
