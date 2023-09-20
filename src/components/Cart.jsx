@@ -23,12 +23,13 @@ const Cart = () => {
             <h1> Cart </h1>
             <div>
             {cart.map((item) => (
-                <div key={item.productId}>
+                <div key={item.productId} className='items-container'>
                 <DisplayCartItem itemId = {item.productId} />
                 </div>
-
           ))}
-        </div>
+            </div>
+            <button>Checkout</button>
+            <button>Continue Shopping</button>
         </div>
     )
 

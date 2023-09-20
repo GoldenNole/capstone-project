@@ -26,6 +26,8 @@ const DisplayCartItem = (props) => {
               <h5>{item.price}</h5>
               <p>{item.description}</p>
               <img src={item.image} alt={item.title} />
+              <button>Remove from Cart</button>
+              <button>Add Item</button>
               <br />
         </div>
       </>
