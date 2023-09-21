@@ -24,7 +24,7 @@ const Header = () => {
           <ul className="nav-links">
           <li><Link to="/">HOME</Link></li>
           <li><Link to="/cart">CART</Link></li>
-          <li><Link to="/" onClick={handleClick}>
+          <li><Link to="/login" onClick={handleClick}>
             LOG OUT
           </Link></li>
           </ul>
