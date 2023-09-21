@@ -7,6 +7,7 @@ import DisplayCategory from "./components/DisplayCategory";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import { useState} from 'react';
+import SignUp from "./components/SignUp";
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -20,6 +21,7 @@ function App() {
         <Route path="/category/:category" element={<DisplayCategory/>} />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<SignUp />} />
       </Routes>
     </div>
   )
