@@ -4,6 +4,7 @@ import DisplayCartItem from "./DisplayCartItem";
 
 const Cart = (props) => {
     const [total, setTotal] = useState(0);
+    const navigate = useNavigate();
     const cart = props.cart;
 
      // clear cart
@@ -16,7 +17,9 @@ const Cart = (props) => {
         <div>
             <h1> Cart </h1>
             <div>
-            {cart.map((item) => (
+            {cart.length === 0 && <div className="container"><h2>Your Cart is Empty!</h2></div>}
+            {cart &&
+            cart.map((item) => (
                 console.log("item", item),
                 <div key={item.id} className='items-container'>
                 <DisplayCartItem item = {item} cart={cart} setCart={props.setCart} />
@@ -24,8 +27,8 @@ const Cart = (props) => {
           ))}
             </div>
             <h1>{total}</h1>
-            <button>Checkout</button>
-            <button>Continue Shopping</button>
+            <button className="btn" onClick={() => navigate(`/checkout`)}>Checkout</button>
+            <button className="btn" onClick={() => navigate(`/`)}>Continue Shopping</button>
             <button onClick={clearCart}>Clear Cart</button>
         </div>
     )
