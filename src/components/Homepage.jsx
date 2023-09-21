@@ -3,8 +3,6 @@ import { useState, useEffect } from 'react';
 
 const Homepage = (props) => {
     const [items, setItems] = useState([]);
-    const [itemAmount, setItemAmount] = useState(0);
-    const [total, setTotal] = useState(0);
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState("");
     const token = localStorage.getItem("token");
