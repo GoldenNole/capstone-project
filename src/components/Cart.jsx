@@ -26,7 +26,7 @@ const Cart = (props) => {
                 </div>
           ))}
             </div>
-            <h1>{total}</h1>
+            <h1>Total: ${total}</h1>
             <button className="btn" onClick={() => navigate(`/checkout`)}>Checkout</button>
             <button className="btn" onClick={() => navigate(`/`)}>Continue Shopping</button>
             <button onClick={clearCart}>Clear Cart</button>
