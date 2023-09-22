@@ -21,7 +21,6 @@ const DisplayItem = () => {
       getItem();
     }, []);
   
-  
     return (
       <>
         <div>

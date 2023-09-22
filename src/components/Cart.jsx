@@ -7,6 +7,13 @@ const Cart = (props) => {
     const navigate = useNavigate();
     const cart = props.cart;
 
+    useEffect(() => {
+        const total = cart.reduce((accumulator, currentItem) => {
+          return accumulator + currentItem.price * currentItem.amount;
+        }, 0);
+        setTotal(total);
+      }, [cart]);
+
      // clear cart
   const clearCart = () => {
     props.setCart([]);
