@@ -8,31 +8,28 @@ const Header = () => {
   };
 
     return (
-        <header>My Online Shop
+      <nav className="font-sans flex flex-col text-center sm:flex-row sm:text-left sm:justify-between py-4 px-6 bg-blue-800 shadow sm:items-baseline w-full">
+      <div className="mb-2 sm:mb-0">
+        <Link to="/" className="text-2xl no-underline text-grey-darkest hover:text-blue-dark">My Online Shop</Link>
+      </div>
           {!token && (
-        <nav>
-          <ul className="nav-links">
-          <li><Link to="/">HOME</Link></li>
-          <li><Link to="/login">LOGIN</Link></li>
-          <li><Link to="/register">SIGN UP</Link></li>
-          </ul>
-        </nav>
+            <div>
+          <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/">HOME</Link>
+          <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/login">LOGIN</Link>
+          <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/register">SIGN UP</Link>
+          </div>
       )}
       {token && (
         <div>
-          <nav>
-          <ul className="nav-links">
-          <li><Link to="/">HOME</Link></li>
-          <li><Link to="/cart">CART</Link></li>
-          <li><Link to="/login" onClick={handleClick}>
-            LOG OUT
-          </Link></li>
-          </ul>
-          </nav>
+          <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/">HOME</Link>
+          <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/cart">CART</Link>
+          <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/login" onClick={handleClick}>
+            LOGOUT
+          </Link>
         </div>
       )}
 
-        </header>
+        </nav>
     )
 }
 export default Header;
