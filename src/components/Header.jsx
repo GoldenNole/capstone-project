@@ -1,33 +1,37 @@
-const Header = () => {
+import { Link } from "react-router-dom";
 
-     const login = async () => {
-        try {
-          const response = await fetch(`https://fakestoreapi.com/auth/login`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                username: "johnd",
-                password: "m38rmF$"
-            })
-          });
-          const result = await response.json();
-          console.log(result);
-        } catch (err) {
-          console.error(err);
-        }
-      };
+const Header = () => {
+  const token = localStorage.getItem("token");
+
+  const handleClick = () => {
+    localStorage.removeItem("token", token);
+  };
 
     return (
         <header>My Online Shop
-            <label>Login
-                <input type="text" placeholder="login" />
-            </label>
-            <label>Password
-                <input type="text" placeholder="password" />
-            </label>
-            <button onClick={login}>Login</button>
+          {!token && (
+        <nav>
+          <ul className="nav-links">
+          <li><Link to="/">HOME</Link></li>
+          <li><Link to="/login">LOGIN</Link></li>
+          <li><Link to="/register">SIGN UP</Link></li>
+          </ul>
+        </nav>
+      )}
+      {token && (
+        <div>
+          <nav>
+          <ul className="nav-links">
+          <li><Link to="/">HOME</Link></li>
+          <li><Link to="/cart">CART</Link></li>
+          <li><Link to="/login" onClick={handleClick}>
+            LOG OUT
+          </Link></li>
+          </ul>
+          </nav>
+        </div>
+      )}
+
         </header>
     )
 }
