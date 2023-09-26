@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../API/main";
-import Header from "./Header";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -9,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   console.log("LOGIN TOKEN", token);
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (username.length < 1) {
@@ -28,25 +27,41 @@ const Login = () => {
   };
 
   return (
-    <>
-      <div className="login_container center">
-      <h1>Welcome to my Store!</h1>
-      <h2>Please Sign In</h2>
-      <form onSubmit={handleSubmit}>
-        <label value={username} onChange={(e) => setUsername(e.target.value)}>
-          Username: <input />
-        </label>
-        <br></br>
-        <label value={password} onChange={(e) => setPassword(e.target.value)}>
-          Password: <input />
-        </label>
-        <br></br>
-        <button className="btn">Submit</button>
-      </form>
-      <h3>If dont you already have an account then please sign up!</h3>
-      <button className="btn" onClick={() => navigate("/register")}>Sign Up</button>
+    <div className="grid h-screen place-items-center">
+      <div className="relative mx-auto w-full max-w-md bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
+        <div className="w-full">
+          <div className="text-center">
+            <h1 className="text-3xl font-semibold text-gray-900">Welcome to my Shop!</h1>
+            <p className="mt-2 text-gray-500">Sign in below to access your account</p>
+          </div>
+          <div className="mt-5">
+            <form onSubmit={handleSubmit}>
+
+            <div className="relative mt-6">
+              <label value={username} onChange={(e) => setUsername(e.target.value)}>
+                Username: <input />
+              </label>
+
+              </div>
+              <div className="relative mt-6">
+              <label value={password} onChange={(e) => setPassword(e.target.value)}>
+                Password: <input />
+              </label>
+              </div>
+              <div className="my-6">
+              <button className="w-full rounded-md bg-black px-3 py-4 text-white focus:bg-gray-600 focus:outline-none">Login</button>
+              </div>
+              <p className="text-center text-sm text-gray-500">Don&#x27;t have an account yet? 
+                    <a href="/register"
+                        className="font-semibold text-gray-600 hover:underline focus:text-gray-800 focus:outline-none"> Sign
+                        up
+                    </a>.
+                </p>
+            </form>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 export default Login;
