@@ -2,12 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../API/main";
 
-const Login = () => {
+const Login = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  console.log("LOGIN TOKEN", token);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,6 +17,7 @@ const Login = () => {
       try {
         const result = await login(username, password);
         localStorage.setItem("token", result.data.token);
+        props.setToken(localStorage.getItem("token"));
         navigate("/");
       } catch (error) {
         alert("Username or Password is incorrect, please try again!");

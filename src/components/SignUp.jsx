@@ -2,11 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { registerUser } from "../API/main";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -19,7 +18,7 @@ const SignUp = () => {
       try {
         const result = await registerUser(username, password);
         localStorage.setItem("token", result.data.token);
-        const token = localStorage.getItem("token");
+        props.setToken(localStorage.getItem("token"));
         navigate("/");
       } catch (error) {
         alert("User already exists, please login instead!");

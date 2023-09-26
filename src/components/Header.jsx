@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
-  const token = localStorage.getItem("token");
+const Header = (props) => {
 
   const handleClick = () => {
-    localStorage.removeItem("token", token);
+    localStorage.removeItem("token", props.token);
+    props.setToken("")
   };
 
     return (
@@ -12,14 +12,14 @@ const Header = () => {
       <div className="mb-2 sm:mb-0">
         <Link to="/" className="text-2xl no-underline text-grey-darkest hover:text-blue-dark">My Online Shop</Link>
       </div>
-          {!token && (
+          {!props.token && (
             <div>
           <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/">HOME</Link>
           <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/login">LOGIN</Link>
           <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/register">SIGN UP</Link>
           </div>
       )}
-      {token && (
+      {props.token && (
         <div>
           <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/">HOME</Link>
           <Link className="text-lg no-underline text-grey-darkest hover:text-blue-dark ml-2" to="/cart">CART</Link>
