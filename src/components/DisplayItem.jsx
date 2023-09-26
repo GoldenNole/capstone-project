@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import AddToCart from "./AddToCartButton";
 
-const DisplayItem = () => {
+const DisplayItem = (props) => {
     const [item, setItem] = useState([]);
     const { itemId } = useParams();
     const navigate = useNavigate();
@@ -29,6 +30,7 @@ const DisplayItem = () => {
               <p>{item.description}</p>
               <img src={item.image} alt={item.title} />
               <br />
+              <AddToCart cart={props.cart} setCart={props.setCart} item={item} />
               <button className="btn" onClick={() => navigate(`/`)}>Home</button>
         </div>
       </>
