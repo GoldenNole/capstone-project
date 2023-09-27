@@ -28,7 +28,7 @@ const DecreaseButton = (props) =>{
         }
       };
     return(
-        <button className="btn" onClick={() => decreaseAmount(props.item.id)}>-</button>
+        <button className="bg-gray-200 rounded-l-lg px-2 py-1" onClick={() => decreaseAmount(props.item.id)}>-</button>
     )
 }
 

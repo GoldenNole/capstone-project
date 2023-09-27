@@ -13,6 +13,7 @@ import Checkout from "./components/CheckOut";
 function App() {
   const [cart, setCart] = useState([]);
   const [token, setToken] = useState("")
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const data = localStorage.getItem("token");
@@ -37,13 +38,13 @@ function App() {
     <div className="App">
       <Header token={token} setToken={setToken} />
       <Routes>
-        <Route path="/" element={<Homepage cart={cart} setCart={setCart} />} />
-        <Route path="/:itemId" element={<DisplayItem cart={cart} setCart={setCart} />} />
-        <Route path="/category/:category" element={<DisplayCategory/>} />
-        <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+        <Route path="/" element={<Homepage token={token} cart={cart} setCart={setCart} />} />
+        <Route path="/:itemId" element={<DisplayItem token={token} cart={cart} setCart={setCart} />} />
+        <Route path="/category/:category" element={<DisplayCategory token={token} cart={cart} setCart={setCart} />} />
+        <Route path="/cart" element={<Cart cart={cart} setCart={setCart} total={total} setTotal={setTotal}  />} />
         <Route path="/login" element={<Login token={token} setToken={setToken}/>} />
         <Route path="/register" element={<SignUp token={token} setToken={setToken} />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Checkout total={total} setCart={setCart} />} />
       </Routes>
     </div>
   )
