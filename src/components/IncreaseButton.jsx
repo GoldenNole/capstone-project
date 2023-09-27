@@ -16,7 +16,7 @@ const IncreaseButton = (props) =>{
         }
       };
     return(
-        <button className="btn" onClick={() => increaseAmount(props.item.id)}>+</button>
+        <button className="bg-gray-200 rounded-r-lg px-2 py-1" onClick={() => increaseAmount(props.item.id)}>+</button>
     )
 }
 
