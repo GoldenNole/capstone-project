@@ -17,9 +17,9 @@ const Cart = (props) => {
      // clear cart
   const clearCart = () => {
     props.setCart([]);
+    localStorage.setItem('cart', JSON.stringify([]));
   };
     
-    console.log("cart", cart);
     return(
         <div>
             <h1> Cart </h1>
@@ -27,7 +27,6 @@ const Cart = (props) => {
             {cart.length === 0 && <div className="container"><h2>Your Cart is Empty!</h2></div>}
             {cart &&
             cart.map((item) => (
-                console.log("item", item),
                 <div key={item.id} className='items-container'>
                 <DisplayCartItem item = {item} cart={cart} setCart={props.setCart} />
                 </div>
