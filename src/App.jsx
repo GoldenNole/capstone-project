@@ -40,7 +40,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage token={token} cart={cart} setCart={setCart} />} />
         <Route path="/:itemId" element={<DisplayItem token={token} cart={cart} setCart={setCart} />} />
-        <Route path="/category/:category" element={<DisplayCategory/>} />
+        <Route path="/category/:category" element={<DisplayCategory token={token} cart={cart} setCart={setCart} />} />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} total={total} setTotal={setTotal}  />} />
         <Route path="/login" element={<Login token={token} setToken={setToken}/>} />
         <Route path="/register" element={<SignUp token={token} setToken={setToken} />} />
