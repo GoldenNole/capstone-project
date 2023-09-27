@@ -12,6 +12,7 @@ const IncreaseButton = (props) =>{
             }
           });
           props.setCart(newCart);
+          localStorage.setItem('cart', JSON.stringify(props.cart));
         }
       };
     return(

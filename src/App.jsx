@@ -16,8 +16,22 @@ function App() {
 
   useEffect(() => {
     const data = localStorage.getItem("token");
-    if ( data !== null ) setToken(data);
+    console.log("token", data)
+    if (data) setToken(data);
   }, []);
+
+  useEffect(() => {
+    const cartData = JSON.parse(localStorage.getItem('cart'));
+    console.log("cart data", cartData)
+    if (cartData) setCart(cartData);
+  }, []);
+
+  // useEffect(() => {
+  //   console.log("Cart Updated", cart)
+  //   localStorage.setItem('cart', JSON.stringify(cart));
+  //   const data = JSON.parse(localStorage.getItem('cart'));
+  //   console.log("cart data", data)
+  // }, [cart]);
  
   return (
     <div className="App">

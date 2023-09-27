@@ -9,7 +9,6 @@ const SignUp = (props) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log("username", username);
     if (username.length < 6) {
       alert("Your username must be at minimum 6 characters in length");
     } else if (password.length < 8) {

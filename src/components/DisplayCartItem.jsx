@@ -10,6 +10,7 @@ const DisplayCartItem = (props) => {
       return item.id !== id;
     });
     props.setCart(newCart);
+    localStorage.setItem('cart', JSON.stringify(props.cart));
   };
     return (
       <>

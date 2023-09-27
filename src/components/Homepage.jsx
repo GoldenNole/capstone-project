@@ -7,7 +7,6 @@ const Homepage = (props) => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const token = localStorage.getItem("token");
-  console.log("TOKEN", token);
 
   useEffect(() => {
     const getAllItmes = async () => {

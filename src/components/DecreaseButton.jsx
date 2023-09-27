@@ -4,8 +4,9 @@ const DecreaseButton = (props) =>{
           return item.id !== id;
         });
         props.setCart(newCart);
+        localStorage.setItem('cart', JSON.stringify(props.cart));
       };
-      
+
     const decreaseAmount = (id) => {
         const cartItem = props.cart.find((item) => {
           return item.id === id;
@@ -19,6 +20,7 @@ const DecreaseButton = (props) =>{
             }
           });
           props.setCart(newCart);
+          localStorage.setItem('cart', JSON.stringify(props.cart));
         }
     
         if (cartItem.amount < 2) {

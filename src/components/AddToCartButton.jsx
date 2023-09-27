@@ -1,8 +1,6 @@
 const AddToCart = (props) =>{
     const addToCart = (product, id) => {
-        console.log("product", product);
         const newItem = { ...product, amount: 1 };
-        console.log("newItem", newItem);
         // check if the item is already in the cart
         const cartItem = props.cart.find((item) => {
           return item.id === id;
@@ -17,10 +15,10 @@ const AddToCart = (props) =>{
             }
           });
           props.setCart(newCart);
-          console.log("Cart", props.cart);
+          localStorage.setItem('cart', JSON.stringify(props.cart));
         } else {
           props.setCart([...props.cart, newItem]);
-          console.log("Cart", props.cart);
+          localStorage.setItem('cart', JSON.stringify(props.cart));
         }
       };
 
