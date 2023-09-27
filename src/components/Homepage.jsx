@@ -6,7 +6,6 @@ const Homepage = (props) => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const getAllItmes = async () => {
@@ -68,7 +67,7 @@ const Homepage = (props) => {
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-3xl font-bold text-gray-900 dark:text-white">${item.price}</span>
-                <AddToCart cart={props.cart} setCart={props.setCart} item={item} />
+                {props.token && <AddToCart cart={props.cart} setCart={props.setCart} item={item} />}
               </div>
             </div>
           </div>

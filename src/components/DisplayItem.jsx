@@ -23,7 +23,8 @@ const DisplayItem = (props) => {
     }, []);
   
     return (
-      <div className="bg-gray-100 py-8 grid h-screen place-items-center">
+      <div className="grid h-screen place-items-center">
+      <div className="container mx-auto bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10 ">
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row -mx-4">
             <div className="md:flex-1 px-4">
@@ -31,8 +32,10 @@ const DisplayItem = (props) => {
                     <img className="w-full h-full object-cover" src={item.image} alt={item.title}/>
                 </div>
                 <div className="flex -mx-2 mb-4">
+                  
                     <div className="w-1/2 px-2">
-                        <DisplayItemCartButton cart={props.cart} setCart={props.setCart} item={item} />
+                        {props.token && <DisplayItemCartButton cart={props.cart} setCart={props.setCart} item={item} />}
+                        {!props.token && <button onClick={() => navigate(`/login`)} className="w-full bg-gray-400 text-gray-800 py-2 px-4 rounded-full font-bold hover:bg-gray-300">Login to Add to Cart</button>}
                     </div>
                     <div className="w-1/2 px-2">
                         <button onClick={() => navigate(`/`)} className="w-full bg-gray-400 text-gray-800 py-2 px-4 rounded-full font-bold hover:bg-gray-300">Return to Products</button>
@@ -58,6 +61,7 @@ const DisplayItem = (props) => {
             </div>
         </div>
     </div>
+</div>
 </div>
     )
   }
