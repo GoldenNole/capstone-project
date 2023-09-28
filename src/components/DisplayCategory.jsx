@@ -58,7 +58,7 @@ const DisplayCategory = (props) => {
   return (
     <>
       <div>
-        <h2>{category}</h2>
+        <h1 className='flex justify-evenly mt-7 italic underline font-extrabold text-xl'>LEGO {category.toUpperCase()}</h1>
         <div className="flex justify-evenly mx-auto m-8 bg-white pt-4 pb-4 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10  ">
           <div className="flex" >
             <h2 className="m-3">Search</h2>
