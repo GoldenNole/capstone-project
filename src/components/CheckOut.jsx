@@ -16,7 +16,7 @@ const CreatePostForm = (props) => {
 
   async function handleCreatePost(e) {
     e.preventDefault();
-    alert("Order Created!");
+    alert("Order Created! Thank you for shopping with BrickMania!");
     props.setCart([]);
     localStorage.setItem('cart', JSON.stringify([]));
     navigate("/");
