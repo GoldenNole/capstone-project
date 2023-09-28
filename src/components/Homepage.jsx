@@ -1,24 +1,23 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from 'react';
 import AddToCart from "./AddToCartButton";
+import { createClient } from '@supabase/supabase-js'
 
 const Homepage = (props) => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+    const supabaseUrl = 'https://lvldflhdnklytnrutmnq.supabase.co'
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2bGRmbGhkbmtseXRucnV0bW5xIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ3MTg1NjAsImV4cCI6MjAxMDI5NDU2MH0.WYAh-n2b9_e-VtalxjoXdWeRp4KjiCt7N23xNGA0xDA"
+    const supabase = createClient(supabaseUrl, supabaseKey)
 
-  useEffect(() => {
-    const getAllItmes = async () => {
-      try {
-        const response = await fetch('https://fakestoreapi.com/products');
-        const result = await response.json();
-        setItems(result);
-      } catch (error) {
-        console.log(error);
+    useEffect(() => {
+      async function getAllItmes() {
+        const { data } = await supabase.from("products").select();
+        setItems(data);
       }
-    }
-    getAllItmes();
-  }, []);
+      getAllItmes();
+    }, []);
 
   const handleSort = (e) => {
     console.log("Sort", e)
@@ -65,10 +64,10 @@ const Homepage = (props) => {
             onChange={handleChange}
           />
         </div>
-        <button className="btn" onClick={() => navigate(`/category/electronics`)}> View Electronics</button><br />
-        <button className="btn" onClick={() => navigate(`/category/jewelery`)}> View jewelery</button><br />
-        <button className="btn" onClick={() => navigate(`/category/men's clothing`)}> View Men clothing</button><br />
-        <button className="btn" onClick={() => navigate(`/category/women's clothing`)}> View Women clothing</button>
+        <button className="btn" onClick={() => navigate(`/category/icons`)}> ICONS</button><br />
+        <button className="btn" onClick={() => navigate(`/category/city`)}> CITY</button><br />
+        <button className="btn" onClick={() => navigate(`/category/friends`)}> FRIENDS</button><br />
+        <button className="btn" onClick={() => navigate(`/category/ideals`)}> IDEALS</button>
         <div className="flex m-2.5">
         <select onChange={(e) => handleSort(e.target.value)}>
           <option value="sort">Sort Products</option>

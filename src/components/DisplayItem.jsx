@@ -1,3 +1,4 @@
+import { createClient } from '@supabase/supabase-js'
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -7,20 +8,19 @@ const DisplayItem = (props) => {
     const [item, setItem] = useState([]);
     const { itemId } = useParams();
     const navigate = useNavigate();
+
+    const supabaseUrl = 'https://lvldflhdnklytnrutmnq.supabase.co'
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2bGRmbGhkbmtseXRucnV0bW5xIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ3MTg1NjAsImV4cCI6MjAxMDI5NDU2MH0.WYAh-n2b9_e-VtalxjoXdWeRp4KjiCt7N23xNGA0xDA"
+    const supabase = createClient(supabaseUrl, supabaseKey)
   
     useEffect(() => {
-      const getItem = async () => {
-        try{
-        const response = await fetch(`https://fakestoreapi.com/products/${itemId}`);
-        const result = await response.json();
-        console.log(result);
-        setItem(result);
-        } catch (error) {
-          console.log(error);
+        async function getItem() {
+          const { data } = await supabase.from("products").select().eq("id", itemId);
+          console.log("data", data)
+          setItem(data[0]);
         }
-      }
-      getItem();
-    }, []);
+        getItem();
+      }, []);
   
     return (
       <div className="grid h-screen place-items-center">
@@ -47,7 +47,7 @@ const DisplayItem = (props) => {
                 <div className="flex mb-4">
                     <div className="mr-4">
                         <span className="font-bold text-gray-700">Price:</span>
-                        <span className="text-gray-600">{item.price}</span>
+                        <span className="text-gray-600">${item.price}</span>
                     </div>
                     <div>
                         <span className="font-bold text-gray-700">Availability:</span>
