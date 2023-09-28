@@ -1,4 +1,5 @@
 const DecreaseButton = (props) =>{
+  
     const removeFromCart = (id) => {
         const newCart = props.cart.filter((item) => {
           return item.id !== id;

@@ -1,4 +1,3 @@
-import { createClient } from '@supabase/supabase-js'
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -8,14 +7,10 @@ const DisplayItem = (props) => {
     const [item, setItem] = useState([]);
     const { itemId } = useParams();
     const navigate = useNavigate();
-
-    const supabaseUrl = 'https://lvldflhdnklytnrutmnq.supabase.co'
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2bGRmbGhkbmtseXRucnV0bW5xIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ3MTg1NjAsImV4cCI6MjAxMDI5NDU2MH0.WYAh-n2b9_e-VtalxjoXdWeRp4KjiCt7N23xNGA0xDA"
-    const supabase = createClient(supabaseUrl, supabaseKey)
   
     useEffect(() => {
         async function getItem() {
-          const { data } = await supabase.from("products").select().eq("id", itemId);
+          const { data } = await props.supabase.from("products").select().eq("id", itemId);
           console.log("data", data)
           setItem(data[0]);
         }

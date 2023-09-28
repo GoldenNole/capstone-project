@@ -10,13 +10,9 @@ const DisplayCategory = (props) => {
   const navigate = useNavigate();
   const { category } = useParams();
 
-  const supabaseUrl = 'https://lvldflhdnklytnrutmnq.supabase.co'
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2bGRmbGhkbmtseXRucnV0bW5xIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ3MTg1NjAsImV4cCI6MjAxMDI5NDU2MH0.WYAh-n2b9_e-VtalxjoXdWeRp4KjiCt7N23xNGA0xDA"
-    const supabase = createClient(supabaseUrl, supabaseKey)
-
     useEffect(() => {
       async function getAllItmes() {
-        const { data } = await supabase.from("products").select().eq("category", category);
+        const { data } = await props.supabase.from("products").select().eq("category", category);
         setItems(data);
       }
       getAllItmes();

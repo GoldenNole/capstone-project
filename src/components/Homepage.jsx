@@ -1,23 +1,19 @@
 import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from 'react';
 import AddToCart from "./AddToCartButton";
-import { createClient } from '@supabase/supabase-js'
 
 const Homepage = (props) => {
   const [items, setItems] = useState([]);
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-    const supabaseUrl = 'https://lvldflhdnklytnrutmnq.supabase.co'
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx2bGRmbGhkbmtseXRucnV0bW5xIiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTQ3MTg1NjAsImV4cCI6MjAxMDI5NDU2MH0.WYAh-n2b9_e-VtalxjoXdWeRp4KjiCt7N23xNGA0xDA"
-    const supabase = createClient(supabaseUrl, supabaseKey)
 
-    useEffect(() => {
-      async function getAllItmes() {
-        const { data } = await supabase.from("products").select();
-        setItems(data);
-      }
-      getAllItmes();
-    }, []);
+  useEffect(() => {
+    async function getAllItmes() {
+      const { data } = await props.supabase.from("products").select();
+      setItems(data);
+    }
+    getAllItmes();
+  }, []);
 
   const handleSort = (e) => {
     console.log("Sort", e)
@@ -69,14 +65,14 @@ const Homepage = (props) => {
         <button className="btn" onClick={() => navigate(`/category/friends`)}> FRIENDS</button><br />
         <button className="btn" onClick={() => navigate(`/category/ideals`)}> IDEALS</button>
         <div className="flex m-2.5">
-        <select onChange={(e) => handleSort(e.target.value)}>
-          <option value="sort">Sort Products</option>
-          <option value="highPrice">Price High to Low</option>
-          <option value="lowPrice">Price Low to High</option>
-          <option value="aToZ">Name A to Z </option>
-          <option value="zToA">Name Z to A</option>
-        </select>
-      </div>
+          <select onChange={(e) => handleSort(e.target.value)}>
+            <option value="sort">Sort Products</option>
+            <option value="highPrice">Price High to Low</option>
+            <option value="lowPrice">Price Low to High</option>
+            <option value="aToZ">Name A to Z </option>
+            <option value="zToA">Name Z to A</option>
+          </select>
+        </div>
       </div>
 
       <div className="flex flex-wrap justify-evenly gap-y-20">

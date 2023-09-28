@@ -32,84 +32,84 @@ const CreatePostForm = (props) => {
           </div>
           <div className="mt-5">
             <form className="flex mt-8" onSubmit={handleCreatePost}>
-            <div className="w-full max-w-lg mx-auto p-8">
+              <div className="w-full max-w-lg mx-auto p-8">
                 <div className="bg-white rounded-lg shadow-lg p-6">
                   <h2 className="text-lg font-medium mb-6">Shipping Address</h2>
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-2"> First Name:
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      value={fName}
-                      type="text"
-                      name="fname"
-                      placeholder="First Name"
-                      onChange={(e) => setfName(e.target.value)}
-                    />
-                  </label>
-                </div>
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-2"> Last Name:
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      value={lName}
-                      type="text"
-                      name="lname"
-                      placeholder="Last Name"
-                      onChange={(e) => setlName(e.target.value)}
-                    />
-                  </label>
-                </div>
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-2"> Street:
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      value={street}
-                      type="text"
-                      name="street"
-                      placeholder="street"
-                      onChange={(e) => setStreet(e.target.value)}
-                    />
-                  </label>
-                </div>
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-2"> City:
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      value={city}
-                      type="text"
-                      name="city"
-                      placeholder="city"
-                      onChange={(e) => setCity(e.target.value)}
-                    />
-                  </label>
-                </div>
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-2"> State:
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      value={state}
-                      type="text"
-                      name="state"
-                      placeholder="state"
-                      onChange={(e) => setState(e.target.value)}
-                    />
-                  </label>
-                </div>
-                <div className="mb-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-2"> Zip:
-                    <input
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      value={zip}
-                      type="text"
-                      name="zip"
-                      placeholder="zip"
-                      onChange={(e) => setZip(e.target.value)}
-                    />
-                  </label>
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2"> First Name:
+                      <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        value={fName}
+                        type="text"
+                        name="fname"
+                        placeholder="First Name"
+                        onChange={(e) => setfName(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2"> Last Name:
+                      <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        value={lName}
+                        type="text"
+                        name="lname"
+                        placeholder="Last Name"
+                        onChange={(e) => setlName(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2"> Street:
+                      <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        value={street}
+                        type="text"
+                        name="street"
+                        placeholder="street"
+                        onChange={(e) => setStreet(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2"> City:
+                      <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        value={city}
+                        type="text"
+                        name="city"
+                        placeholder="city"
+                        onChange={(e) => setCity(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2"> State:
+                      <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        value={state}
+                        type="text"
+                        name="state"
+                        placeholder="state"
+                        onChange={(e) => setState(e.target.value)}
+                      />
+                    </label>
+                  </div>
+                  <div className="mb-6">
+                    <label className="block text-sm font-medium text-gray-700 mb-2"> Zip:
+                      <input
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        value={zip}
+                        type="text"
+                        name="zip"
+                        placeholder="zip"
+                        onChange={(e) => setZip(e.target.value)}
+                      />
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
-              
+
               <div className="w-full max-w-lg mx-auto p-8">
                 <div className="bg-white rounded-lg shadow-lg p-6">
                   <h2 className="text-lg font-medium mb-6">Payment Information</h2>
