@@ -54,8 +54,7 @@ const Homepage = (props) => {
   const itemsToDisplay = searchTerm.length ? filteredItems : items;
 
   return (
-    <div>
-
+    <div className="bg-white">
       <div className="flex justify-evenly mx-auto m-8 bg-white pt-4 pb-4 shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10  ">
         <div className="flex" >
           <h2 className="m-3">Search</h2>
@@ -81,18 +80,18 @@ const Homepage = (props) => {
       </div>
       </div>
 
-      <div className="flex flex-wrap justify-evenly gap-y-20 ">
+      <div className="flex flex-wrap justify-evenly gap-y-20">
         {itemsToDisplay.map((item) => (
-          <div key={item.id} className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col justify-between">
-            <div className="cursor-pointer" onClick={() => navigate(`/${item.id}`)}>
-              <img className="p-8 rounded-t-lg object-fill h-64 w-96" src={item.image} alt={item.title} />
+          <div key={item.id} className="w-full max-w-sm  border rounded-lg shadow bg-white flex flex-col justify-between shadow-xl ring-1 ring-gray-900/5 sm:rounded-xl sm:px-10">
+            <div className="cursor-pointer flex justify-center" onClick={() => navigate(`/${item.id}`)}>
+              <img className="p-8  rounded-t-lg object-fill h-64 w-64" src={item.image} alt={item.title} />
             </div>
             <div className="px-5 pb-5">
               <div className="cursor-pointer" onClick={() => navigate(`/${item.id}`)}>
-                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white cursor-pointer">{item.title}</h5>
+                <h5 className="text-xl font-semibold tracking-tight text-black cursor-pointer">{item.title}</h5>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-3xl font-bold text-gray-900 dark:text-white">${item.price}</span>
+                <span className="text-3xl font-bold text-black">${item.price}</span>
                 {props.token && <AddToCart cart={props.cart} setCart={props.setCart} item={item} />}
               </div>
             </div>
