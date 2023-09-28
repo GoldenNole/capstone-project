@@ -16,9 +16,11 @@ const DisplayItemCartButton = (props) =>{
           });
           props.setCart(newCart);
           localStorage.setItem('cart', JSON.stringify(props.cart));
+          alert("Item added to cart!");
         } else {
           props.setCart([...props.cart, newItem]);
           localStorage.setItem('cart', JSON.stringify(props.cart));
+          alert("Item added to cart!");
         }
       };
 
