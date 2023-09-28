@@ -28,8 +28,8 @@ const DisplayItem = (props) => {
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row -mx-4">
             <div className="md:flex-1 px-4">
-                <div className="h-[460px] rounded-lg bg-gray-300 mb-4">
-                    <img className="w-full h-full object-cover" src={item.image} alt={item.title}/>
+                <div className="h-[460px] rounded-lg bg-white mb-4">
+                    <img className="w-full h-full object-scale-down" src={item.image} alt={item.title}/>
                 </div>
                 <div className="flex -mx-2 mb-4">
                   
