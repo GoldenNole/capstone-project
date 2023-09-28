@@ -35,7 +35,7 @@ function App() {
   // }, [cart]);
  
   return (
-    <div className="App">
+    <div>
       <Header token={token} setToken={setToken} />
       <Routes>
         <Route path="/" element={<Homepage token={token} cart={cart} setCart={setCart} />} />
